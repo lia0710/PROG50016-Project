@@ -3,3 +3,6 @@
 Engine/Engine-Libs/
 Engine/Intermediate/
 GameProject/Intermediate/
+
+# User-specific files
+*/*.user
