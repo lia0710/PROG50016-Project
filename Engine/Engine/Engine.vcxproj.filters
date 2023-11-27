@@ -45,7 +45,7 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
-    <ClCompile Include="IRenderable.cpp">
+    <ClCompile Include="Renderable.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
@@ -69,6 +69,12 @@
     <ClCompile Include="TypeClass.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="FontSprite.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -83,7 +89,7 @@
     <ClInclude Include="Entity.h">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderable.h">
+    <ClInclude Include="Renderable.h">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
@@ -109,6 +115,12 @@
     </ClInclude>
     <ClInclude Include="TypeClass.h">
       <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedSprite.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="FontSprite.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
