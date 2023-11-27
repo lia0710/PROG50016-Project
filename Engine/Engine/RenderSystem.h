@@ -6,9 +6,6 @@
 #include <string>
 #include <list>
 
-#include "SDL.h"
-#include "SDL_image.h"
-
 class IRenderable;
 
 class RenderSystem
@@ -19,9 +16,6 @@ private:
 	unsigned int height = 720;
 	bool fullScreen = false;
 	std::list<IRenderable*> renderables;
-
-	SDL_Window* window = nullptr;
-	SDL_Renderer* renderer = nullptr;
 
 public:
 	static RenderSystem& Instance()

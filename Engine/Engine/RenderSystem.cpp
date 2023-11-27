@@ -16,28 +16,35 @@ void RenderSystem::RemoveRenderable(IRenderable* renderable)
 
 void RenderSystem::Initialize()
 {
-	window = SDL_CreateWindow("SDL Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, 0);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	std::ifstream inputStream("../Assets/RenderSettings.json");
+	std::string str((std::istreambuf_iterator<char>(inputStream)), std::istreambuf_iterator<char>());
+	json::JSON document = json::JSON::Load(str);
+
+	std::cout << str.c_str() << std::endl;
+
+	THROW_RUNTIME_ERROR(!document.hasKey("name"), "Render Settings must have a name");
+	name = document["name"].ToString();
+	THROW_RUNTIME_ERROR(!document.hasKey("width"), "Render Settings must have a width");
+	width = document["width"].ToInt();
+	THROW_RUNTIME_ERROR(!document.hasKey("height"), "Render Settings must have a height");
+	height = document["height"].ToInt();
+
+	if (document.hasKey("fullscreen"));
+	{
+		fullScreen = document["fullScreen"].ToBool();
+	}
 }
 
 void RenderSystem::Destroy()
 {
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 }
 
 void RenderSystem::Update()
 {
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-	SDL_RenderClear(renderer);
-
-	// Render Objects here
 	for (auto& renderable : renderables)
 	{
 		renderable->Render();
 	}
-
-	SDL_RenderPresent(renderer);
 }
 
 void RenderSystem::Load()
