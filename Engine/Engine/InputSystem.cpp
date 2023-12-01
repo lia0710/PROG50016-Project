@@ -235,6 +235,7 @@ void InputSystem::triggerMouseEvent(Uint8 button, bool pressed) {
 		return 0.0f;
 	}
 
+
 	void InputSystem::registerQuitEventHandler(std::function<void()> handler) {
 		quitEventHandler = handler;
 
