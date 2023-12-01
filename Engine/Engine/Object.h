@@ -12,7 +12,7 @@ private:
 
 	std::string name = "";
 	std::string guid = "";
-	STRCODE uid = 0;
+	STRCODE uid = -1;
 
 protected:
 	Object();
