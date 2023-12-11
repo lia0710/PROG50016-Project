@@ -13,6 +13,7 @@ class MouseFinder : public Component
 public:
     void Initialize() override;
     void Update() override;
+    void Load(json::JSON&) override;
     BoxCollider* collider = nullptr;
     STRCODE next_scene = -1;
 };

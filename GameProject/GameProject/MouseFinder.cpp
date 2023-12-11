@@ -45,7 +45,11 @@ void MouseFinder::Update()
             {
                 if (SDL_HasIntersection(collidersquare, othersquare))
                 {
-                    LOG("Collision")
+                    Scene* current_scene = SceneManager::Get().GetActiveScene();
+                    if (SceneManager::Get().SetActiveScene(next_scene))
+                    {
+                        current_scene->isEnabled = false;
+                    }
                 }
             }
 
@@ -65,5 +69,14 @@ void MouseFinder::Update()
                 current_scene->isEnabled = false;
             }
         }
+    }
+}
+
+void MouseFinder::Load(json::JSON& node)
+{
+    Component::Load(node);
+    if (node.hasKey("NextScene"))
+    {
+        next_scene = GetHashCode(node.at("NextScene").ToString().c_str());
     }
 }
