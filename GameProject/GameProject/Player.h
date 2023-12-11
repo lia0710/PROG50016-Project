@@ -17,6 +17,8 @@ private:
     Vec2 start_pos;
     BoxCollider* collider = nullptr;
     STRCODE game_over_scene = -1;
+
+    bool preventmoveright = false;
 };
 
 #endif // PLAYER_H

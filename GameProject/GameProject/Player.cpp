@@ -15,12 +15,21 @@ void Player::Update() {
     Vec2 dir = Vec2::Zero;
     const InputSystem& input = InputSystem::Instance();
 
+
+    if (input.isKeyPressed(SDLK_q)) {
+        LOG("q press");
+        //Entity* myent = ConstructObject
+    }
+
     // Handle horizontal movement
     if (input.isKeyPressed(SDLK_LEFT) || input.isKeyPressed(SDLK_a) || input.isGamepadButtonPressed(0, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
         dir.x -= 1;
     }
     if (input.isKeyPressed(SDLK_RIGHT) || input.isKeyPressed(SDLK_d) || input.isGamepadButtonPressed(0, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) {
-        dir.x += 1;
+        if (!preventmoveright)
+        {
+            dir.x += 1;
+        }
     }
 
     // Handle vertical movement
@@ -53,9 +62,10 @@ void Player::Update() {
         LOG("no collider uwu");
         return;
     }
+    preventmoveright = false;
     for (const auto& other: collider->OnCollisionEnter())
     {
-	    if (other->GetOwner()->GetName() != "Enemy")
+	    if (other->GetOwner()->GetName() != "Button1")
 	    {
             continue;
         }
@@ -67,6 +77,18 @@ void Player::Update() {
     	}
 
         ownerEntity->GetTransform().position = start_pos;
+    }
+    for (const auto& other : collider->OnCollisionStay())
+    {
+        if (other->GetOwner()->GetName() != "Bat")
+        {
+            continue;
+        }
+
+        if (ownerEntity->GetTransform().position.x < other->GetOwner()->GetTransform().position.x)
+        {
+            preventmoveright = true;
+        }
     }
 }
 void Player::Load(json::JSON& node)

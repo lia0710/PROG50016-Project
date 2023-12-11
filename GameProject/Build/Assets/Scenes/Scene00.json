@@ -1,0 +1,62 @@
+{
+  "AssetManager": {
+    "Assets": [
+      {
+        "GUID": "abutton"
+      }
+    ]
+  },
+  "Scene": {
+    "Name": "Level00",
+    "GUID": "632b2afd-2ffe-4776-83f3-2138a446b46a",
+    "IsEnabled": true,
+    "Entities": [
+      {
+        "Name": "Button",
+        "GUID": "btn1",
+        "Transform": {
+          "Position": [ 500.0, 380.0 ],
+          "Rotation": 0.0,
+          "Scale": [ 0.3, 0.3 ]
+        },
+        "Components": [
+          {
+            "ClassName": "Sprite",
+            "ClassData": {
+              "Texture": "abutton"
+            }
+          },
+          {
+            "ClassName": "BoxCollider",
+            "ClassData": {}
+          }
+        ]
+      },
+      {
+        "Name": "MouseHelper",
+        "GUID": "mousehelp",
+        "Transform": {
+          "Position": [ 0.0, 0.0 ],
+          "Rotation": 0.0,
+          "Scale": [ 0.1, 0.1 ]
+        },
+        "Components": [
+          {
+            "ClassName": "BoxCollider",
+            "ClassData": {}
+          },
+          {
+            "ClassName": "MouseFinder",
+            "ClassData": {}
+          },
+          {
+            "ClassName": "Sprite",
+            "ClassData": {
+              "Texture": "abutton"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

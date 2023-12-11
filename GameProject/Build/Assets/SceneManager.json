@@ -1,10 +1,15 @@
 {
-    "ActiveSceneGUID": "1a9e5171-c7ab-47d4-9af4-d490d1494201",
+    "ActiveSceneGUID": "632b2afd-2ffe-4776-83f3-2138a446b46a",
     "LoadedScenes": [
+        { "GUID": "632b2afd-2ffe-4776-83f3-2138a446b46a" },
         { "GUID": "1a9e5171-c7ab-47d4-9af4-d490d1494201" },
         { "GUID": "45f479c9-f110-43c5-be35-9fbbc5d7d694" }
     ],
     "AllScenes": [
+        {
+            "GUID": "632b2afd-2ffe-4776-83f3-2138a446b46a",
+            "Path": "Scenes/Scene00.json"
+        },
         {
             "GUID": "1a9e5171-c7ab-47d4-9af4-d490d1494201",
             "Path": "Scenes/Scene01.json"

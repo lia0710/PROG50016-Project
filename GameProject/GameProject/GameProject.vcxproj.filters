@@ -13,6 +13,7 @@
     <ClCompile Include="GameOver.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="MouseFinder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -24,6 +25,7 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="MouseFinder.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\AssetManager.json">
@@ -58,6 +60,15 @@
     </None>
     <None Include="..\Build\Assets\Bat.png.asset">
       <Filter>Assets\Textures</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\Scene00.json">
+      <Filter>Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Button.png.asset">
+      <Filter>Assets\Textures</Filter>
+    </None>
+    <None Include="..\Build\Assets\PAPYRUS2.asset">
+      <Filter>Assets\Fonts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +127,15 @@
     <Image Include="..\Build\Assets\Dungeon Level 1.png">
       <Filter>Assets\Textures</Filter>
     </Image>
+    <Image Include="..\Build\Assets\Button.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\Build\Assets\PAPYRUS.TTF">
+      <Filter>Assets\Fonts</Filter>
+    </Font>
+    <Font Include="..\Build\Assets\PAPYRUS2.TTF">
       <Filter>Assets\Fonts</Filter>
     </Font>
   </ItemGroup>

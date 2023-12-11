@@ -186,15 +186,18 @@
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Game_Register.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MouseFinder.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameOver.h" />
+    <ClInclude Include="MouseFinder.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Build\Assets\Bat.png" />
+    <Image Include="..\Build\Assets\Button.png" />
     <Image Include="..\Build\Assets\Dungeon Level 1.png" />
     <Image Include="..\Build\Assets\girl.png" />
     <Image Include="..\Build\Assets\nottaco.png" />
@@ -203,12 +206,15 @@
     <None Include="..\Build\Assets\AssetManager.json" />
     <None Include="..\Build\Assets\AudioSystem.json" />
     <None Include="..\Build\Assets\Bat.png.asset" />
+    <None Include="..\Build\Assets\Button.png.asset" />
     <None Include="..\Build\Assets\girl.png.asset" />
     <None Include="..\Build\Assets\hitEffect03.wav.asset" />
     <None Include="..\Build\Assets\nottaco.png.asset" />
     <None Include="..\Build\Assets\PAPYRUS.TTF.asset" />
+    <None Include="..\Build\Assets\PAPYRUS2.asset" />
     <None Include="..\Build\Assets\RenderSettings.json" />
     <None Include="..\Build\Assets\SceneManager.json" />
+    <None Include="..\Build\Assets\Scenes\Scene00.json" />
     <None Include="..\Build\Assets\Scenes\Scene01.json" />
     <None Include="..\Build\Assets\Scenes\Scene02.json" />
   </ItemGroup>
@@ -217,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\Build\Assets\PAPYRUS.TTF" />
+    <Font Include="..\Build\Assets\PAPYRUS2.TTF" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
