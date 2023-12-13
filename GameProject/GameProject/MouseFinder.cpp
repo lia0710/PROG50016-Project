@@ -45,6 +45,9 @@ void MouseFinder::Update()
             {
                 if (SDL_HasIntersection(collidersquare, othersquare))
                 {
+                    Storage::Instance().playerhealth = 3;
+                    Storage::Instance().timeLeft = 300.0;
+                    Storage::Instance().enemiesDefeated = 0;
                     Scene* current_scene = SceneManager::Get().GetActiveScene();
                     if (SceneManager::Get().SetActiveScene(next_scene))
                     {
@@ -53,21 +56,6 @@ void MouseFinder::Update()
                 }
             }
 
-        }
-
-        for (const auto& other : collider->OnCollisionEnter())
-        {
-            if (other->GetOwner()->GetName() != "Button")
-            {
-                continue;
-            }
-
-
-            Scene* current_scene = SceneManager::Get().GetActiveScene();
-            if (SceneManager::Get().SetActiveScene(next_scene))
-            {
-                current_scene->isEnabled = false;
-            }
         }
     }
 }

@@ -15,6 +15,15 @@ void Projectile::Update()
 
 
 	CollisionChecker checker;
+	if (checker.checkEnemy(ownerEntity))
+	{
+		SceneManager::Get().RemoveEntity(ownerEntity->GetGuid());
+	}
+
+	if (checker.checkSpawner(ownerEntity))
+	{
+		SceneManager::Get().RemoveEntity(ownerEntity->GetGuid());
+	}
 	if (checker.checkWall(ownerEntity))
 	{
 		SceneManager::Get().RemoveEntity(ownerEntity->GetGuid());

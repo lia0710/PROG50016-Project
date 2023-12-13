@@ -12,9 +12,71 @@ void Player::Initialize()
     collider = (BoxCollider*)ownerEntity->GetComponent("BoxCollider");
 }
 void Player::Update() {
+    health = Storage::Instance().playerhealth;
+    Asset* myimage = AssetManager::Get().GetAsset("heart3");
+    if (health == 2)
+    {
+        myimage = AssetManager::Get().GetAsset("heart2");
+    }
+    else if (health == 1)
+    {
+        myimage = AssetManager::Get().GetAsset("heart1");
+    }
+
+    Entity* ui = nullptr;
+    for (const auto& search : SceneManager::Get().FindEntityByName("UIHealth01"))
+    {
+        ui = search;
+    }
+    Component* uicomp = ui->GetComponent("Sprite");
+    Sprite* mysprite = (Sprite*)(uicomp);
+    mysprite->SetTextureAsset(((TextureAsset*)(myimage)));
+
+
+
+
+    Storage::Instance().timeLeft -= Time::Instance().DeltaTime();
+    float timeforstring = Storage::Instance().timeLeft;
+    std::string timetext = "Time: " + std::to_string(timeforstring);
+
+    Entity* timeui = nullptr;
+    for (const auto& search : SceneManager::Get().FindEntityByName("UITime01"))
+    {
+        timeui = search;
+    }
+    Component* timeuicomp = timeui->GetComponent("FontSprite");
+    FontSprite* mytimesprite = (FontSprite*)(timeuicomp);
+    mytimesprite->SetText(timetext);
+
+
+
+
+
+    int scoreforstring = Storage::Instance().enemiesDefeated;
+    std::string scoretext = "Score: " + std::to_string(scoreforstring);
+
+    Entity* scoreui = nullptr;
+    for (const auto& search : SceneManager::Get().FindEntityByName("UIScore01"))
+    {
+        scoreui = search;
+    }
+    Component* scoreuicomp = scoreui->GetComponent("FontSprite");
+    FontSprite* myscoresprite = (FontSprite*)(scoreuicomp);
+    myscoresprite->SetText(scoretext);
+
+
+
+
     Vec2 dir = Vec2::Zero;
     const InputSystem& input = InputSystem::Instance();
-    if (input.isMouseButtonPressed(SDL_BUTTON_LEFT)) {
+
+    if (!input.isMouseButtonPressed(SDL_BUTTON_LEFT))
+    {
+        mouseup = true;
+    }
+
+    if (input.isMouseButtonPressed(SDL_BUTTON_LEFT) && mouseup) {
+        mouseup = false;
         int x, y;
         SDL_GetMouseState(&x, &y);
 
@@ -46,7 +108,7 @@ void Player::Update() {
         myproj->ymove = ymove;
     }
 
-    if (input.isKeyPressed(SDLK_q)) {
+    if (input.isKeyPressed(SDLK_q) && mouseup) {
 
         Entity* myent = SceneManager::Get().CreateEntity();
         Asset* myimage = AssetManager::Get().GetAsset("abat");
@@ -60,10 +122,7 @@ void Player::Update() {
         dir.x -= 1;
     }
     if (input.isKeyPressed(SDLK_RIGHT) || input.isKeyPressed(SDLK_d) || input.isGamepadButtonPressed(0, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) {
-        if (!preventmoveright)
-        {
-            dir.x += 1;
-        }
+        dir.x += 1;
     }
 
     // Handle vertical movement
@@ -93,11 +152,6 @@ void Player::Update() {
     ownerEntity->GetTransform().position += dir * (speed * Time::Instance().DeltaTime());
 
     CollisionChecker checker;
-    //checker.checkWall(ownerEntity);
-    /*if (checker.checkWall(ownerEntity))
-    {
-        ownerEntity->GetTransform().position.x += ;
-    }*/
 
     if (collider == nullptr)
     {
@@ -116,5 +170,16 @@ void Player::Load(json::JSON& node)
     if (node.hasKey("DeathScene"))
     {
 	    game_over_scene = GetHashCode(node.at("DeathScene").ToString().c_str());
+    }
+}
+
+void Player::TakeDamage()
+{
+    health -= 1;
+    Storage::Instance().playerhealth -= 1;
+    if (health <= 0)
+    {
+        health = 3;
+        Storage::Instance().playerhealth = 3;
     }
 }

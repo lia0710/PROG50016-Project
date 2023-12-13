@@ -6,6 +6,8 @@ class EnemySpawner : public Component
 
 	void Update() override;
 
-	float spawntime = 5.0;
+	float spawntime = 2.0;
+public:
+	int health = 10;
 };
 

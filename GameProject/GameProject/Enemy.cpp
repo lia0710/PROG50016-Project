@@ -47,5 +47,14 @@ void Enemy::Update()
         }
 
         ownerEntity->GetTransform().position += dir * (speed * Time::Instance().DeltaTime());
+
+        CollisionChecker checker;
+
+        if (checker.Portalcheck("Player", ownerEntity))
+        {
+            //collision effects go here
+            SceneManager::Get().RemoveEntity(ownerEntity->GetGuid());
+            ((Player*)player->GetComponent("Player"))->TakeDamage();
+        }
     }
 }

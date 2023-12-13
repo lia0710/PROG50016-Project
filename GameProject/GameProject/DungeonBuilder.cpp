@@ -52,7 +52,7 @@ void DungeonBuilder::Initialize()
 				float yf = 43.75 * y + (2 * 21.875);
 				myent->GetTransform().position = Vec2(xf, yf);
 				myent->GetTransform().scale = Vec2(2.0, 2.0);
-				Storage::Instance().AddWall(myent);
+				Storage::Instance().AddEnemySpawn(myent);
 			}
 		}
 	}

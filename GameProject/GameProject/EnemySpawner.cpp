@@ -8,15 +8,17 @@ void EnemySpawner::Update()
     if (spawntime <= 0)
     {
         Entity* myent = SceneManager::Get().CreateEntity();
-        Asset* myimage = AssetManager::Get().GetAsset("abat");
+        Asset* myimage = AssetManager::Get().GetAsset("skeley");
         Component* mycomp = myent->CreateComponent("Sprite");
+        myent->CreateComponent("BoxCollider");
         Sprite* mysprite = (Sprite*)(mycomp);
         mysprite->SetTextureAsset(((TextureAsset*)(myimage)));
         myent->CreateComponent("Enemy");
 
         //set transform and destination
         myent->GetTransform().position = Vec2(ownerEntity->GetTransform().position.x, ownerEntity->GetTransform().position.y);
+        Storage::Instance().AddEnemy(myent);
 
-        spawntime = 5.0;
+        spawntime = 2.0;
     }
 }

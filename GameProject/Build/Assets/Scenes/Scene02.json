@@ -32,6 +32,59 @@
         ]
       },
       {
+        "Name": "UIHealth01",
+        "GUID": "UIHealth01",
+        "Transform": {
+          "Position": [ 65.625, 21.875 ],
+          "Rotation": 0.0,
+          "Scale": [ 1.0, 1.0 ]
+        },
+        "Components": [
+          {
+            "ClassName": "Sprite",
+            "ClassData": {
+              "Texture": "heart3"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "UITime01",
+        "GUID": "UITime01",
+        "Transform": {
+          "Position": [ 590.625, 21.875 ],
+          "Rotation": 0.0,
+          "Scale": [ 0.8, 0.8 ]
+        },
+        "Components": [
+          {
+            "ClassName": "FontSprite",
+            "ClassData": {
+              "Text": "Time: 300",
+              "Font": "https-youtu-be-jVhlJNJopOQ"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "UIScore01",
+        "GUID": "UIScore01",
+        "Transform": {
+          "Position": [ 200.0, 21.875 ],
+          "Rotation": 0.0,
+          "Scale": [ 0.8, 0.8 ]
+        },
+        "Components": [
+          {
+            "ClassName": "FontSprite",
+            "ClassData": {
+              "Text": "Score:",
+              "Font": "https-youtu-be-jVhlJNJopOQ"
+            }
+          }
+        ]
+      },
+      {
         "Name": "Player",
         "GUID": "playerLevel02",
         "Transform": {

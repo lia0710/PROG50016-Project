@@ -129,8 +129,84 @@ bool CollisionChecker::checkWall(Entity* passer)
             }
         }
     }
+    return false;
+}
 
-    
-    
+bool CollisionChecker::checkSpawner(Entity* passer)
+{
+    const CollisionSystem& collisionsys = CollisionSystem::Instance();
+    BoxCollider* other = nullptr;
+    for (const auto& otherfind : collisionsys.colliders)
+    {
+        if (Storage::Instance().IsAnEnemySpawn(otherfind->GetOwner()) && otherfind->GetOwner()->GetParentScene() == SceneManager::Get().GetActiveScene())
+        {
+            other = static_cast<BoxCollider*>(otherfind);
+            if (other != nullptr)
+            {
+                SDL_Rect* collidersquare = nullptr;
+                if (passer->HasComponent("Sprite"))
+                {
+                    collidersquare = &((Sprite*)(passer->GetComponent("Sprite")))->targetRect;
+                }
+                SDL_Rect* othersquare = nullptr;
+                if (other->GetOwner()->HasComponent("Sprite"))
+                {
+                    othersquare = &((Sprite*)(other->GetOwner()->GetComponent("Sprite")))->targetRect;
+                }
+                if (collidersquare != nullptr && othersquare != nullptr)
+                {
+                    if (SDL_HasIntersection(collidersquare, othersquare))
+                    {
+                        ((EnemySpawner*)other->GetOwner()->GetComponent("EnemySpawner"))->health -= 1;
+                        if (((EnemySpawner*)other->GetOwner()->GetComponent("EnemySpawner"))->health <= 0)
+                        {
+                            SceneManager::Get().RemoveEntity(other->GetOwner()->GetGuid());
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool CollisionChecker::checkEnemy(Entity* passer)
+{
+    const CollisionSystem& collisionsys = CollisionSystem::Instance();
+    BoxCollider* other = nullptr;
+    for (const auto& otherfind : collisionsys.colliders)
+    {
+        if (Storage::Instance().IsAnEnemy(otherfind->GetOwner()) && otherfind->GetOwner()->GetParentScene() == SceneManager::Get().GetActiveScene())
+        {
+            other = static_cast<BoxCollider*>(otherfind);
+            if (other != nullptr)
+            {
+                SDL_Rect* collidersquare = nullptr;
+                if (passer->HasComponent("Sprite"))
+                {
+                    collidersquare = &((Sprite*)(passer->GetComponent("Sprite")))->targetRect;
+                }
+                SDL_Rect* othersquare = nullptr;
+                if (other->GetOwner()->HasComponent("Sprite"))
+                {
+                    othersquare = &((Sprite*)(other->GetOwner()->GetComponent("Sprite")))->targetRect;
+                }
+                if (collidersquare != nullptr && othersquare != nullptr)
+                {
+                    if (SDL_HasIntersection(collidersquare, othersquare))
+                    {
+                        ((Enemy*)other->GetOwner()->GetComponent("Enemy"))->health -= 1;
+                        if (((Enemy*)other->GetOwner()->GetComponent("Enemy"))->health <= 0)
+                        {
+                            Storage::Instance().enemiesDefeated += 1;
+                            SceneManager::Get().RemoveEntity(other->GetOwner()->GetGuid());
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+    }
     return false;
 }

@@ -8,6 +8,8 @@ class Enemy : public Component
 	void Update() override;
 
 	Entity* player = nullptr;
-	float speed = 400.0;
+	float speed = 100.0;
+public:
+	int health = 3;
 };
 

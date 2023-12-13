@@ -4,6 +4,7 @@
 #define _GAME_CORE_H_
 
 #include "EngineCore.h"
+#include "FontSprite.h"
 #include "RenderSystem.h"
 #include "Scene.h"
 #include "Engine.h"
