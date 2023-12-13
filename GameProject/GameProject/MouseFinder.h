@@ -8,6 +8,9 @@
 
 class MouseFinder : public Component
 {
+    //a utility for the mouse in the menu
+    //it has an attached collider that moves to the mouse's position on a click
+    //this collider checks for collision with a button and moves the scene forward to start the game
     DECLARE_DYNAMIC_DERIVED_CLASS(MouseFinder, Component)
 
 public:

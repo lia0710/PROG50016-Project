@@ -2,6 +2,9 @@
 #include "GameCore.h"
 class Storage
 {
+	//singleton class, used for storing game data
+	//keeps score, playerhealth, and time left for the ui
+	//also keeps lists of all walls, enemies, and enemy factories for collision checking
 public:
 	static Storage& Instance()
 	{

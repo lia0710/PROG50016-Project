@@ -2,6 +2,8 @@
 #include "GameCore.h"
 class DungeonBuilder : public Component
 {
+	//constructs the level based on the tiled file data
+	//reads in the tmf file from json and used that to determine where to place walls and spawners
 	DECLARE_DYNAMIC_DERIVED_CLASS(DungeonBuilder, Component)
 public:
 	void Initialize();
