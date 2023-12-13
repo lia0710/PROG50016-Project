@@ -21,9 +21,9 @@
         "Name": "Button",
         "GUID": "btn1",
         "Transform": {
-          "Position": [ 500.0, 380.0 ],
+          "Position": [ 350.0, 350.0 ],
           "Rotation": 0.0,
-          "Scale": [ 1.0, 1.0 ]
+          "Scale": [ 0.8, 0.8 ]
         },
         "Components": [
           {

@@ -19,6 +19,9 @@ private:
     STRCODE game_over_scene = -1;
 
     bool preventmoveright = false;
+
+    //eventually will be an object pool of projectiles
+    Entity* myEntity;
 };
 
 #endif // PLAYER_H

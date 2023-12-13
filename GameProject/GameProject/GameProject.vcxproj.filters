@@ -14,6 +14,8 @@
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="MouseFinder.cpp" />
+    <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="CollisionChecker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -26,6 +28,8 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="MouseFinder.h" />
+    <ClInclude Include="Portal.h" />
+    <ClInclude Include="CollisionChecker.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\AssetManager.json">

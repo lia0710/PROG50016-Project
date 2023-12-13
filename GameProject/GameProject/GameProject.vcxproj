@@ -183,17 +183,21 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Game_Register.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseFinder.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Portal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionChecker.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="MouseFinder.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Portal.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Build\Assets\Bat.png" />

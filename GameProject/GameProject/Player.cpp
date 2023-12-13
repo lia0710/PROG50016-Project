@@ -10,6 +10,7 @@ void Player::Initialize()
     Component::Initialize();
     start_pos = ownerEntity->GetTransform().position;
     collider = (BoxCollider*)ownerEntity->GetComponent("BoxCollider");
+    //myEntity = SceneManager::Get().CreateEntity();
 }
 void Player::Update() {
     Vec2 dir = Vec2::Zero;
@@ -17,8 +18,25 @@ void Player::Update() {
 
 
     if (input.isKeyPressed(SDLK_q)) {
-        LOG("q press");
-        //Entity* myent = ConstructObject
+        /*Asset* myimage = AssetManager::Get().GetAsset("abat");
+        if (myEntity->HasComponent("Sprite"))
+        {
+            Sprite* mysprite = (Sprite*)(myEntity->GetComponent("Sprite"));
+            mysprite->SetTextureAsset(((TextureAsset*)(myimage)));
+        }
+        else
+        {
+            Component* mycomp = myEntity->CreateComponent("Sprite");
+        }*/
+        //sprite was not added to myent
+        //sprite was made, but will not be added to myent till next frame
+        //must enforce object pooling
+
+        Entity* myent = SceneManager::Get().CreateEntity();
+        Asset* myimage = AssetManager::Get().GetAsset("abat");
+        Component* mycomp = myent->CreateComponent("Sprite");
+        Sprite* mysprite = (Sprite*)(mycomp);
+        mysprite->SetTextureAsset(((TextureAsset*)(myimage)));
     }
 
     // Handle horizontal movement
