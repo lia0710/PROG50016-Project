@@ -20,6 +20,8 @@
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
+    <ClCompile Include="Enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -38,6 +40,8 @@
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Storage.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="Enemy.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\AssetManager.json">

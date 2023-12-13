@@ -9,4 +9,6 @@ void GameRegisterClasses()
 	REGISTER_TYPECLASS(DungeonBuilder);
 	REGISTER_TYPECLASS(Wall);
 	REGISTER_TYPECLASS(Projectile);
+	REGISTER_TYPECLASS(Enemy);
+	REGISTER_TYPECLASS(EnemySpawner);
 }

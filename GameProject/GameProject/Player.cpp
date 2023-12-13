@@ -87,14 +87,13 @@ void Player::Update() {
         LOG("Input: " << dir.x << ", " << dir.y);
 #endif
     }
-
     // Move the player
     Vec2 old = ownerEntity->GetTransform().position;
         
     ownerEntity->GetTransform().position += dir * (speed * Time::Instance().DeltaTime());
 
     CollisionChecker checker;
-    checker.checkWall(ownerEntity);
+    //checker.checkWall(ownerEntity);
     /*if (checker.checkWall(ownerEntity))
     {
         ownerEntity->GetTransform().position.x += ;
@@ -104,34 +103,6 @@ void Player::Update() {
     {
         LOG("no collider uwu");
         return;
-    }
-    preventmoveright = false;
-    for (const auto& other: collider->OnCollisionEnter())
-    {
-	    if (other->GetOwner()->GetName() != "Button1")
-	    {
-            continue;
-        }
-
-    	Scene* current_scene = SceneManager::Get().GetActiveScene();
-    	if (SceneManager::Get().SetActiveScene(game_over_scene))
-    	{
-    		current_scene->isEnabled = false;
-    	}
-
-        ownerEntity->GetTransform().position = start_pos;
-    }
-    for (const auto& other : collider->OnCollisionStay())
-    {
-        if (other->GetOwner()->GetName() != "Bat")
-        {
-            continue;
-        }
-
-        if (ownerEntity->GetTransform().position.x < other->GetOwner()->GetTransform().position.x)
-        {
-            preventmoveright = true;
-        }
     }
 }
 void Player::Load(json::JSON& node)

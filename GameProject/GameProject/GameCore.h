@@ -20,6 +20,8 @@
 #include "Portal.h"
 #include "Projectile.h"
 #include "Storage.h"
+#include "Enemy.h"
+#include "EnemySpawner.h"
 #include "AudioSystem.h"
 #include "AssetManager.h"
 

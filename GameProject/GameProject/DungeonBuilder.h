@@ -9,5 +9,8 @@ public:
 
 	std::vector<int> walls;
 	std::vector<int> layout;
+
+	std::vector<int> spawners;
+	std::vector<int> spawnlayout;
 };
 

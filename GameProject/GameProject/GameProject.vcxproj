@@ -185,6 +185,8 @@
   <ItemGroup>
     <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="DungeonBuilder.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Game_Register.cpp" />
     <ClCompile Include="main.cpp" />
@@ -198,6 +200,8 @@
   <ItemGroup>
     <ClInclude Include="CollisionChecker.h" />
     <ClInclude Include="DungeonBuilder.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="MouseFinder.h" />

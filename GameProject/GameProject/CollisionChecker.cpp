@@ -116,12 +116,10 @@ bool CollisionChecker::checkWall(Entity* passer)
                             else if (total.y > 0 && total.y < othersquare->h)
                             {
                                 //player below, wall above
-                                 LOG("Below")
                                 passer->GetTransform().position.y += othersquare->h - total.y;
                             }
                             else if (total.y < 0 && other->GetOwner()->GetTransform().position.y < collidersquare->h + passer->GetTransform().position.y)
                             {
-                                LOG("Above")
                                 //player above, wall below
                                 passer->GetTransform().position.y -= othersquare->h + total.y;
                             }
