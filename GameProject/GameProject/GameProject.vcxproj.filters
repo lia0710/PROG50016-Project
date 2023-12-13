@@ -16,6 +16,10 @@
     <ClCompile Include="MouseFinder.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="CollisionChecker.cpp" />
+    <ClCompile Include="DungeonBuilder.cpp" />
+    <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="Storage.cpp" />
+    <ClCompile Include="Projectile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -30,6 +34,10 @@
     <ClInclude Include="MouseFinder.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="CollisionChecker.h" />
+    <ClInclude Include="DungeonBuilder.h" />
+    <ClInclude Include="Wall.h" />
+    <ClInclude Include="Storage.h" />
+    <ClInclude Include="Projectile.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\AssetManager.json">

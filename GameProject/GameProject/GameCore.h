@@ -13,9 +13,13 @@
 #include "CollisionChecker.h"
 #include "Component.h"
 #include "Player.h"
+#include "DungeonBuilder.h"
+#include "Wall.h"
 #include "GameOver.h"
 #include "MouseFinder.h"
 #include "Portal.h"
+#include "Projectile.h"
+#include "Storage.h"
 #include "AudioSystem.h"
 #include "AssetManager.h"
 

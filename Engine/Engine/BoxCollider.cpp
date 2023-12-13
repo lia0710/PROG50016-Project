@@ -3,6 +3,14 @@
 
 IMPLEMENT_DYNAMIC_CLASS(BoxCollider);
 
+void BoxCollider::Initialize()
+{
+	if (ownerEntity->GetName() != "")
+	{
+		//attached = ownerEntity->GetName();
+	}
+}
+
 bool BoxCollider::HandleCollision(ICollider* other) {
 	return false;
 }

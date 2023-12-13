@@ -76,3 +76,63 @@ bool CollisionChecker::Portalcheck(std::string entityName, Entity* passer)
     }
     return false;
 }
+
+bool CollisionChecker::checkWall(Entity* passer)
+{
+    const CollisionSystem& collisionsys = CollisionSystem::Instance();
+    BoxCollider* other = nullptr;
+    for (const auto& otherfind : collisionsys.colliders)
+    {
+        if (Storage::Instance().IsAWall(otherfind->GetOwner()) && otherfind->GetOwner()->GetParentScene() == SceneManager::Get().GetActiveScene())
+        {
+            other = static_cast<BoxCollider*>(otherfind);
+            if (other != nullptr)
+            {
+                SDL_Rect* collidersquare = nullptr;
+                if (passer->HasComponent("Sprite"))
+                {
+                    collidersquare = &((Sprite*)(passer->GetComponent("Sprite")))->targetRect;
+                }
+                SDL_Rect* othersquare = nullptr;
+                if (other->GetOwner()->HasComponent("Sprite"))
+                {
+                    othersquare = &((Sprite*)(other->GetOwner()->GetComponent("Sprite")))->targetRect;
+                }
+                if (collidersquare != nullptr && othersquare != nullptr)
+                {
+                    if (SDL_HasIntersection(collidersquare, othersquare))
+                    {
+                        Vec2 total = Vec2((passer->GetTransform().position.x - other->GetOwner()->GetTransform().position.x), (passer->GetTransform().position.y - other->GetOwner()->GetTransform().position.y));
+                            
+                        
+                        if (total.x > 0 && total.x < othersquare->w)
+                            {
+                                passer->GetTransform().position.x += othersquare->w - total.x;
+                            }
+                            else if (total.x < 0 && other->GetOwner()->GetTransform().position.x < collidersquare->w + passer->GetTransform().position.x)
+                            {
+                                passer->GetTransform().position.x -= othersquare->w + total.x;
+                            }
+                            else if (total.y > 0 && total.y < othersquare->h)
+                            {
+                                //player below, wall above
+                                 LOG("Below")
+                                passer->GetTransform().position.y += othersquare->h - total.y;
+                            }
+                            else if (total.y < 0 && other->GetOwner()->GetTransform().position.y < collidersquare->h + passer->GetTransform().position.y)
+                            {
+                                LOG("Above")
+                                //player above, wall below
+                                passer->GetTransform().position.y -= othersquare->h + total.y;
+                            }
+                            return true;
+                    }
+                }
+            }
+        }
+    }
+
+    
+    
+    return false;
+}

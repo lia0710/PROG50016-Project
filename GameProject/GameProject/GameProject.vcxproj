@@ -184,20 +184,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CollisionChecker.cpp" />
+    <ClCompile Include="DungeonBuilder.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Game_Register.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseFinder.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Storage.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionChecker.h" />
+    <ClInclude Include="DungeonBuilder.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="MouseFinder.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Storage.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Build\Assets\Bat.png" />

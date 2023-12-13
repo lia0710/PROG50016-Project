@@ -223,6 +223,9 @@
     <ClInclude Include="TextureAsset.h" />
     <ClInclude Include="TypeClass.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GameProject\Build\Assets\Dungeon Area 1 Tilemap.tmx" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

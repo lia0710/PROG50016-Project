@@ -25,6 +25,8 @@ protected:
 	~BoxCollider() override = default;
 
 public:
+	std::string attached;
+	void SetAttached(std::string attach) { attached = attach; }
 	/**
 * @brief Sets the size of the collider
 *
@@ -56,7 +58,12 @@ public:
 * @return Always returns false
 */
 	bool HandleCollision(ICollider* other) override;
+
+
+private:
+	void Initialize();
 };
+
 
 
 #endif

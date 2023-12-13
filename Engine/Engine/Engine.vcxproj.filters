@@ -225,4 +225,9 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GameProject\Build\Assets\Dungeon Area 1 Tilemap.tmx">
+      <Filter>Source Files\Assets</Filter>
+    </None>
+  </ItemGroup>
 </Project>
